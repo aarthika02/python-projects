@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Productivity Manager</title>
+    </head>
+    <body>
+        <h2>Task Manager</h2>
+        <form action="/add" method="post">
+            <input name="name" placeholder="Task name">
+            <select name="priority">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+            </select>
+            <input name="deadline" type="date">
+            <button>Add Task</button>
+        </form>
+        <hr>
+        <h3>Tasks</h3>
+        <ul>
+            {% for t in tasks %}
+            <li>
+                {{t[1]}} | {{t[2]}} | {{t[3]}}
+                <a href="/delete/{{t[0]}}">Delete</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
